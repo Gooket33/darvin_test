@@ -38,7 +38,6 @@ class HomeController extends AbstractController
             $this->jokeMailerService->sendJokeEmail($data['email'], $joke, $data['category']);
 
             file_put_contents('/home/gooket/DarvinTest/jokes.txt', $joke . PHP_EOL, FILE_APPEND);
-
             return new JsonResponse(['message' => 'Шутка отправлена и записана в файл!'], Response::HTTP_OK);
         }
 
