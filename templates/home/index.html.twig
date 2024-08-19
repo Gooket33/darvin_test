@@ -1,11 +1,11 @@
-{# templates/home/index.html.twig #}
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Получить случайную шутку</title>
+    <link rel="stylesheet" href="/assets/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/assets/script.js"></script>
 </head>
 <body>
     <h1>Получить случайную шутку</h1>
@@ -16,26 +16,6 @@
     <button type="submit">Отправить</button>
     {{ form_end(form) }}
 
-    <div id="result"></div>
-
-    <script>
-        $(document).ready(function() {
-            $('#jokeForm').on('submit', function(e) {
-                e.preventDefault(); // Предотвращаем стандартное поведение формы
-
-                $.ajax({
-                    url: $(this).attr('action'),
-                    type: 'POST',
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        $('#result').html('<p>' + response.message + '</p>');
-                    },
-                    error: function() {
-                        $('#result').html('<p>Произошла ошибка при отправке шутки.</p>');
-                    }
-                });
-            });
-        });
-    </script>
+    <div id="result" style="display: none;"></div> <!-- Скрываем блок по умолчанию -->
 </body>
 </html>
