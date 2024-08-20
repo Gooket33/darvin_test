@@ -11,6 +11,7 @@ class JokeApiService
     public function __construct(Client $client)
     {
         $this->client = new Client(['base_uri' => 'https://api.chucknorris.io/']); 
+
     }
 
     public function getCategories(): array
